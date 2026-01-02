@@ -7,55 +7,55 @@ const ProductsPage = () => {
             id: 1,
             title: 'Shipping & Transport Boxes',
             description: 'Durable corrugated boxes designed to withstand the rigors of shipping and handling. Perfect for logistics and supply chain.',
-            image: '/images/shipping_box.png'
+            image: '/images/shipping_box.jpg'
         },
         {
             id: 2,
             title: 'Custom Die-Cut Boxes',
             description: 'Precision-cut boxes tailored to your specific product dimensions and branding requirements. Ideal for retail display.',
-            image: '/images/die_cut_box.png'
+            image: '/images/die_cut_box.jpg'
         },
         {
             id: 3,
             title: 'Corrugated Boards & Sheets',
             description: 'High-quality corrugated sheets available in various flutes and grades for versatile packaging applications.',
-            image: '/images/corrugated_sheets_stack.png'
+            image: '/images/corrugated_sheets_stack.jpg'
         },
         {
             id: 4,
             title: 'Triple/Double/Single Wall Boxes',
             description: 'Range of wall strengths from lightweight single wall to heavy-duty triple wall for maximum protection.',
-            image: '/images/heavy_duty_box.png'
+            image: '/images/heavy_duty_box.jpg'
         },
         {
             id: 5,
             title: 'Rigid & Specialty Boxes',
             description: 'Premium rigid boxes for luxury items and gifts, offering superior strength and a high-end feel.',
-            image: '/images/rigid_gift_box.png'
+            image: '/images/rigid_gift_box.jpg'
         },
         {
             id: 6,
             title: 'Corrugated Rolls & Sheets',
             description: 'Flexible corrugated rolls for wrapping irregular items and providing cushioning protection.',
-            image: '/images/corrugated_rolls.png'
+            image: '/images/corrugated_rolls.jpg'
         },
         {
             id: 7,
             title: 'Offset Cartons',
             description: 'High-quality printed cartons with offset printing for vibrant graphics and detailed branding.',
-            image: '/images/offset_printed_carton.png'
+            image: '/images/offset_printed_carton.jpg'
         },
         {
             id: 8,
             title: 'Point-of-Purchase (POP) Displays',
             description: 'Eye-catching floor and counter displays designed to boost product visibility and sales in retail environments.',
-            image: '/images/pop_display.png'
+            image: '/images/pop_display.jpg'
         },
         {
             id: 9,
             title: 'Product Inserts & Dividers',
             description: 'Custom internal dividers to organize products and prevent movement within the box.',
-            image: '/images/box_inserts.png'
+            image: '/images/box_inserts.jpg'
         }
     ];
 

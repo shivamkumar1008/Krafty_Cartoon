@@ -1,4 +1,5 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
@@ -30,6 +31,7 @@ transporter.verify((error, success) => {
 
 // Contact Route
 app.post('/api/contact', async (req, res) => {
+    console.log('Received contact request:', req.body);
     const { name, phone, email, message } = req.body;
 
     const mailOptions = {

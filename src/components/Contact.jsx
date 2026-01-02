@@ -19,6 +19,7 @@ const Contact = () => {
     e.preventDefault();
     setStatus('sending');
     try {
+      console.log('Sending contact form data:', formData);
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -27,18 +28,22 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         setStatus('success');
         alert('Thank you for your message! We will get back to you soon.');
         setFormData({ name: '', phone: '', email: '', message: '' });
       } else {
+        console.error('Server error:', data);
         setStatus('error');
-        alert('Failed to send message. Please try again.');
+        // Show specific error from server if available
+        alert(`Failed to send message: ${data.message || 'Unknown server error'}`);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Network/Client Error:', error);
       setStatus('error');
-      alert('An error occurred. Please try again later.');
+      alert(`Error occurred: ${error.message}`);
     } finally {
       setStatus('');
     }

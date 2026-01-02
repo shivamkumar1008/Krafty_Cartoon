@@ -1,7 +1,6 @@
-/* eslint-env node */
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
-module.exports = async (req, res) => {
+export default async function (req, res) {
     // Enable CORS manually for serverless function in case it's needed, 
     // though same-origin usually applies for next.js/vercel api routes if identical domain.
     res.setHeader('Access-Control-Allow-Credentials', true);
@@ -59,4 +58,4 @@ module.exports = async (req, res) => {
         console.error('Error sending email:', error);
         res.status(500).json({ success: false, message: 'Failed to send email.' });
     }
-};
+}

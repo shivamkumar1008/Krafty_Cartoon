@@ -1,8 +1,14 @@
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '.env') });
-const express = require('express');
-const nodemailer = require('nodemailer');
-const cors = require('cors');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+import express from 'express';
+import nodemailer from 'nodemailer';
+import cors from 'cors';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -16,7 +22,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS.replace(/\s+/g, '') // Remove spaces from app password
+        pass: process.env.EMAIL_PASS ? process.env.EMAIL_PASS.replace(/\s+/g, '') : ''
     }
 });
 
@@ -35,7 +41,7 @@ app.post('/api/contact', async (req, res) => {
     const { name, phone, email, message } = req.body;
 
     const mailOptions = {
-        from: email, // Sender address (from the form) - Note: Gmail might override this to your authenticated email
+        from: email, // Sender address (from the form)
         to: process.env.EMAIL_USER, // Your email address
         subject: `New Contact Form Submission from ${name}`,
         text: `

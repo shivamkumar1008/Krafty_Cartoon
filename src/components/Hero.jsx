@@ -21,7 +21,7 @@ const Hero = () => {
       <style>{`
         .hero {
           padding: 160px 0 100px; /* Account for fixed header */
-          background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/images/pexels-freek-wolsink-508219-34221998.jpg');
+          background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/images/hero-optimized.jpg');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;

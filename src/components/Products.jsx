@@ -1,47 +1,47 @@
 import React from 'react';
 
 const Products = () => {
-    const products = [
-        {
-            id: 1,
-            title: 'Corrugated Boxes',
-            description: 'High-strength industrial boxes designed for maximum protection during transit.',
-            icon: '📦'
-        },
-        {
-            id: 2,
-            title: 'Custom Packaging',
-            description: 'Tailor-made solutions with specific dimensions and branding for your unique products.',
-            icon: '✨'
-        },
-        {
-            id: 3,
-            title: 'End-to-End Manufacturing',
-            description: 'Complete production from raw material sourcing to finished box delivery.',
-            icon: '🏭'
-        }
-    ];
+  const products = [
+    {
+      id: 1,
+      title: 'Corrugated Boxes',
+      description: 'High-strength industrial boxes designed for maximum protection during transit.',
+      icon: '📦'
+    },
+    {
+      id: 2,
+      title: 'Custom Packaging',
+      description: 'Tailor-made solutions with specific dimensions and branding for your unique products.',
+      icon: '✨'
+    },
+    {
+      id: 3,
+      title: 'End-to-End Manufacturing',
+      description: 'Complete production from raw material sourcing to finished box delivery.',
+      icon: '🏭'
+    }
+  ];
 
-    return (
-        <section id="products" className="section products-section">
-            <div className="container">
-                <div className="section-header">
-                    <h2 className="section-title">Our Products & Services</h2>
-                    <p className="section-subtitle">Comprehensive packaging solutions for every industry.</p>
-                </div>
+  return (
+    <section id="products" className="section products-section">
+      <div className="container">
+        <div className="section-header">
+          <h2 className="section-title">Our Products & Services</h2>
+          <p className="section-subtitle">Comprehensive packaging solutions for every industry.</p>
+        </div>
 
-                <div className="products-grid">
-                    {products.map((product) => (
-                        <div key={product.id} className="product-card">
-                            <div className="product-icon">{product.icon}</div>
-                            <h3 className="product-title">{product.title}</h3>
-                            <p className="product-desc">{product.description}</p>
-                        </div>
-                    ))}
-                </div>
+        <div className="products-grid">
+          {products.map((product) => (
+            <div key={product.id} className="product-card">
+              <div className="product-icon" role="img" aria-label={`${product.title} icon`}>{product.icon}</div>
+              <h3 className="product-title">{product.title}</h3>
+              <p className="product-desc">{product.description}</p>
             </div>
+          ))}
+        </div>
+      </div>
 
-            <style>{`
+      <style>{`
         .products-section {
           background-color: var(--color-light);
         }
@@ -100,8 +100,8 @@ const Products = () => {
           color: var(--color-gray);
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default Products;

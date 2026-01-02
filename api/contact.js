@@ -1,3 +1,4 @@
+/* eslint-env node */
 const nodemailer = require('nodemailer');
 
 module.exports = async (req, res) => {

@@ -52,13 +52,13 @@ const Contact = () => {
           <div className="contact-info">
             <h3>Contact Information</h3>
             <p className="contact-detail">
-              <strong>Owner:</strong> Bharat Tomar
+              <strong>Owner:</strong> Amrita Raj
             </p>
             <p className="contact-detail">
               <strong>Phone:</strong> <a href="tel:+918586801489">+91 85868 01489</a>
             </p>
             <p className="contact-detail">
-              <strong>Email:</strong> <a href="mailto:KraftyCartoons@gmail.com">KraftyCartoons@gmail.com</a>
+              <strong>Email:</strong> <a href="mailto:kraftycartoons@gmail.com">kraftycartoons@gmail.com</a>
             </p>
             <p className="contact-detail">
               <strong>Address:</strong> A7/10, G.T. Road, South Side GT Road, Ghaziabad, India 201012

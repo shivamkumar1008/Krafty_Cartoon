@@ -1,46 +1,58 @@
 import React, { useState } from 'react';
-import logo from '../assets/logo.jpg';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
-    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-    const navLinks = [
-        { name: 'Home', href: '#home' },
-        { name: 'About', href: '#about' },
-        { name: 'Products', href: '#products' },
-        { name: 'Why Us', href: '#why-us' },
-        { name: 'Contact', href: '#contact' },
-    ];
+  const scrollToSection = (id) => {
+    setIsMenuOpen(false);
+    if (location.pathname !== '/') {
+      window.location.href = `/${id}`;
+    } else {
+      const element = document.querySelector(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
-    return (
-        <header className="header">
-            <div className="container header-container">
-                <a href="#home" className="logo-link">
-                    <img src={logo} alt="Krafty Cartoons" className="logo" />
-                    {/* Fallback text if logo fails or for SEO */}
-                    <span className="logo-text">Krafty Cartoons</span>
-                </a>
+  return (
+    <header className="header">
+      <div className="container header-container">
+        <Link to="/" className="logo-link">
+          <img src="/logo.jpg" alt="Krafty Cartoons" className="logo" />
+          <span className="logo-text">Krafty Cartoons</span>
+        </Link>
 
-                <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-                    <ul className="nav-list">
-                        {navLinks.map((link) => (
-                            <li key={link.name}>
-                                <a href={link.href} className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                                    {link.name}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
+        <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
+          <ul className="nav-list">
+            <li>
+              <button onClick={() => scrollToSection('#home')} className="nav-link-btn">Home</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('#about')} className="nav-link-btn">About</button>
+            </li>
+            <li>
+              <Link to="/products" className="nav-link" onClick={() => setIsMenuOpen(false)}>Products</Link>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('#why-us')} className="nav-link-btn">Why Us</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('#contact')} className="nav-link-btn">Contact</button>
+            </li>
+          </ul>
+        </nav>
 
-                <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
-                    <span className="hamburger"></span>
-                </button>
-            </div>
+        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+          <span className="hamburger"></span>
+        </button>
+      </div>
 
-            <style>{`
+      <style>{`
         .header {
           position: fixed;
           top: 0;
@@ -69,6 +81,7 @@ const Header = () => {
           font-weight: 700;
           font-size: 1.25rem;
           color: var(--color-primary);
+          text-decoration: none;
         }
 
         .logo {
@@ -78,7 +91,7 @@ const Header = () => {
         }
         
         .logo-text {
-          display: none; /* Hide text if logo is prominent, or show on mobile? */
+          display: none;
         }
 
         @media (max-width: 480px) {
@@ -88,19 +101,27 @@ const Header = () => {
         .nav-list {
           display: flex;
           gap: 2rem;
+          list-style: none;
         }
 
-        .nav-link {
+        .nav-link, .nav-link-btn {
           font-weight: 500;
           color: var(--color-dark);
           position: relative;
+          text-decoration: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 1rem;
+          font-family: inherit;
+          padding: 0;
         }
 
-        .nav-link:hover {
+        .nav-link:hover, .nav-link-btn:hover {
           color: var(--color-primary);
         }
 
-        .nav-link::after {
+        .nav-link::after, .nav-link-btn::after {
           content: '';
           position: absolute;
           bottom: -4px;
@@ -111,7 +132,7 @@ const Header = () => {
           transition: width 0.3s ease;
         }
 
-        .nav-link:hover::after {
+        .nav-link:hover::after, .nav-link-btn:hover::after {
           width: 100%;
         }
 
@@ -119,6 +140,8 @@ const Header = () => {
           display: none;
           background: none;
           padding: 0.5rem;
+          border: none;
+          cursor: pointer;
         }
 
         .hamburger {
@@ -170,8 +193,8 @@ const Header = () => {
           }
         }
       `}</style>
-        </header>
-    );
+    </header>
+  );
 };
 
 export default Header;

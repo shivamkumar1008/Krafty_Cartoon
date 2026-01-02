@@ -13,6 +13,9 @@ const Footer = () => {
           <a href="#about">About</a>
           <a href="#products">Products</a>
           <a href="#contact">Contact</a>
+          <a href="https://www.instagram.com/krafty.cartoons/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            Instagram
+          </a>
         </div>
         <div className="footer-copyright">
           <p>&copy; {new Date().getFullYear()} Krafty Cartoons. All rights reserved.</p>

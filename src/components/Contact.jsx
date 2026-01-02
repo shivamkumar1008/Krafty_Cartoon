@@ -28,7 +28,14 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const text = await response.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        console.error('Non-JSON response:', text);
+        throw new Error(`Server response was not JSON: ${text.substring(0, 50)}...`);
+      }
 
       if (response.ok) {
         setStatus('success');
@@ -37,7 +44,6 @@ const Contact = () => {
       } else {
         console.error('Server error:', data);
         setStatus('error');
-        // Show specific error from server if available
         alert(`Failed to send message: ${data.message || 'Unknown server error'}`);
       }
     } catch (error) {
